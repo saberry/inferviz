@@ -1,0 +1,10 @@
+Package: inferviz
+Version: 0.0.0.4000
+Title: Discovering interocular traumatic impact 
+Description: Creates distractor plots, along with an actual plot, to see if any relationships actually pop out. There is also a function for doing the same with models. Inspired by Di Cook's work and by Andrew Bray's infer package.
+Authors@R: person("Seth", "Berry", , "seth.berry@nd.edu", c("aut", "cre"))
+License: What license it uses
+Encoding: UTF-8
+LazyData: true
+ByteCompile: true
+RoxygenNote: 6.0.1
