@@ -8,6 +8,7 @@
 #' @return A panel with several visualizations.
 #' @examples
 #' simViz(mtcars, mpg, cyl, 2)
+#' @export
 
 multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
   library(grid)

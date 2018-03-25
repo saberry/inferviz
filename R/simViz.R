@@ -12,9 +12,6 @@
 simViz <- function(dat, var1, var2, distractors = 3) {
 
   library(rlang); library(purrr); library(dplyr); library(ggplot2)
-
-  source("R/multiplot.R")
-
   var1 <- enquo(var1)
 
   var2 <- enquo(var2)
