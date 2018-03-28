@@ -4,12 +4,13 @@
 #' @param var1 The bare variable you want on the x-axis
 #' @param var2 The bare variable you want on the y-axis
 #' @param distractors The number of distractor plots you want included. Defaults to 3.
+#' @param answer Logical. TRUE if you want to play the game, FALSE otherwise.
 #' @return A panel with several visualizations: one is the actual data and the rest are from shuffled data.
 #' @examples
 #' simViz(mtcars, mpg, cyl, 2)
 #' @export
 
-simViz <- function(dat, var1, var2, distractors = 3) {
+simViz <- function(dat, var1, var2, distractors = 3, answer = TRUE) {
 
   library(rlang); library(purrr); library(dplyr); library(ggplot2)
   var1 <- enquo(var1)
@@ -34,12 +35,13 @@ simViz <- function(dat, var1, var2, distractors = 3) {
 
   multiplot(plotlist = test, cols = 2)
 
-  answer <- menu(c("No", "Yes"), title = "Are you ready to see the real visual?")
+  if(answer == TRUE) {
+    answer <- menu(c("No", "Yes"), title = "Are you ready to see the real visual?")
 
-  if(answer == 2) {
-    actual
-  } else print("You probably don't have all day -- run it again and figure it out!")
-
+    if(answer == 2) {
+      actual
+    } else print("You probably don't have all day -- run it again and figure it out!")
+  } else message("Good luck!")
 }
 
 # debugonce(simFunction)

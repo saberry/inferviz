@@ -4,7 +4,7 @@
 \alias{simViz}
 \title{Create a panel of plots for finding relationships}
 \usage{
-simViz(dat, var1, var2, distractors = 3)
+simViz(dat, var1, var2, distractors = 3, answer = TRUE)
 }
 \arguments{
 \item{dat}{Your data}
@@ -14,6 +14,8 @@ simViz(dat, var1, var2, distractors = 3)
 \item{var2}{The bare variable you want on the y-axis}
 
 \item{distractors}{The number of distractor plots you want included. Defaults to 3.}
+
+\item{answer}{Logical. TRUE if you want to play the game, FALSE otherwise.}
 }
 \value{
 A panel with several visualizations: one is the actual data and the rest are from shuffled data.
