@@ -1,9 +1,3 @@
----
-output: html_document
----
-
-
-
 # inferViz
 
 ## Origins
