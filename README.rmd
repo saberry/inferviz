@@ -2,7 +2,9 @@
 output: html_document
 ---
 
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
 # inferViz
 
@@ -16,14 +18,7 @@ Shortly after seeing Di's talk, I decided to put something together for the sake
 
 The main function, simviz, was created with the intention of being easy for students to immediately start using.
 
-
-```r
+```{r}
 inferviz::simViz(mtcars, mpg, hp, answer = FALSE)
 ```
-
-```
-## Good luck!
-```
-
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
 
