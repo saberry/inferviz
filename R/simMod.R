@@ -49,7 +49,7 @@ simMod <- function(dat, dv, ..., distractors = 3, answer = FALSE) {
   print(test)
 
   if(answer == TRUE) {
-    answer <- menu(c("No", "Yes"), title = "Are you ready to see the real visual?")
+    answer <- menu(c("No", "Yes"), title = "Are you ready to see the real test statistics?")
 
     if(answer == 2) {
       actual

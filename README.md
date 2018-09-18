@@ -43,6 +43,7 @@ It is conceptually simple -- plot the real visualization, alongside visualizatio
 mtcars %>% 
   simViz(., mpg, hp)
 ```
+
 <p align="center">
 <img src="figure/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" style="display: block; margin: auto;" />
 </p>
@@ -53,6 +54,7 @@ The number of distractors can be increased or decreased from the default of 3:
 ```r
 simViz(mtcars, mpg, hp, distractors = 5)
 ```
+
 <p align="center">
 <img src="figure/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
 </p>
@@ -63,6 +65,7 @@ There is also an "interactive" mode for simviz; by setting the answer argument t
 ```r
 simViz(mtcars, mpg, hp, distractors = 5, answer = TRUE)
 ```
+
 <p align="center">
 <img src="figure/unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
 </p>
@@ -73,6 +76,7 @@ Are you ready to see the real visual?
 1: No
 2: Yes
 ```
+
 <p align="center">
 <img src="figure/unnamed-chunk-5-2.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
 </p>
@@ -85,10 +89,12 @@ simMod(mtcars, mpg, wt, distractors = 3)
 ```
 
 ```
-  (Intercept)        wt
-1    -0.64832 0.7074616
-2    37.28513 -5.344472
-3    22.17643  17.81454
+  (Intercept)         wt
+1   19.166464  0.2872518
+2   -5.344472 -5.3444716
+3   37.285126 37.2851262
+4   26.415013 -1.9657745
+5   19.523715  0.1762094
 ```
 
 This prompts students to think through their hypotheses and see if that expected pattern is present. 
