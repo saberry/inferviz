@@ -43,8 +43,9 @@ It is conceptually simple -- plot the real visualization, alongside visualizatio
 mtcars %>% 
   simViz(., mpg, hp)
 ```
-
+<p align="center">
 <img src="figure/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" style="display: block; margin: auto;" />
+</p>
 
 The number of distractors can be increased or decreased from the default of 3:
 
@@ -52,8 +53,9 @@ The number of distractors can be increased or decreased from the default of 3:
 ```r
 simViz(mtcars, mpg, hp, distractors = 5)
 ```
-
+<p align="center">
 <img src="figure/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" style="display: block; margin: auto;" />
+</p>
 
 There is also an "interactive" mode for simviz; by setting the answer argument to TRUE, users can select whether they see the real visualization or not. 
 
@@ -61,8 +63,9 @@ There is also an "interactive" mode for simviz; by setting the answer argument t
 ```r
 simViz(mtcars, mpg, hp, distractors = 5, answer = TRUE)
 ```
-
+<p align="center">
 <img src="figure/unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+</p>
 
 ```
 Are you ready to see the real visual? 
@@ -70,14 +73,15 @@ Are you ready to see the real visual?
 1: No
 2: Yes
 ```
-
+<p align="center">
 <img src="figure/unnamed-chunk-5-2.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
+</p>
 
 In addition to visualization, there is also a basic linear model simulator. It behaves very much in the same way as the visualizations, but instead produces a table of coefficients. Students come armed with the knowledge that *p*-values are the ultimate arbiter of truth in science, so this is a way to nudge them towards looking at the coefficients first. My goal is to have students look at the coefficient patterns and see if they make sense given their hypotheses.
 
 
 ```r
-simMod(mtcars, mpg, wt, distractors = 5)
+simMod(mtcars, mpg, wt, distractors = 3)
 ```
 
 ```

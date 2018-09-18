@@ -54,7 +54,7 @@ simViz(mtcars, mpg, hp, distractors = 5, answer = TRUE)
 In addition to visualization, there is also a basic linear model simulator. It behaves very much in the same way as the visualizations, but instead produces a table of coefficients. Students come armed with the knowledge that *p*-values are the ultimate arbiter of truth in science, so this is a way to nudge them towards looking at the coefficients first. My goal is to have students look at the coefficient patterns and see if they make sense given their hypotheses.
 
 ```{r}
-simMod(mtcars, mpg, wt, distractors = 5)
+simMod(mtcars, mpg, wt, distractors = 3)
 ```
 
 This prompts students to think through their hypotheses and see if that expected pattern is present. 
