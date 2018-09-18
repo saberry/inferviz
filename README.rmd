@@ -1,6 +1,3 @@
----
-output: html_document
----
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
@@ -10,7 +7,7 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 
 ## Origins
 
-At the 2018 RStudio::conf, Di Cook gave a great presentation about inference through visualization. The concept of Few's/Berk's "interoccular traumatic impact" was not new to me, but Di's take was something completely different to me. Interestingly, I remember having done something on mturk related to her presentation; unfortunately, I was not really thinking critically about the meaning of the task at the time.
+At the rstudio::conf 2018, Di Cook gave a great presentation about inference through visualization. The concept of Few's/Berk's "interoccular traumatic impact" was not new to me, but Di's take was something completely different to me. Interestingly, I remember having done something on mturk related to her presentation; unfortunately, I was not really thinking critically about the meaning of the task at the time.
 
 Shortly after seeing Di's talk, I decided to put something together for the sake of teaching the concept of visual inference to students. 
 
@@ -29,7 +26,7 @@ devtools::install_github("saberry/inferviz")
 
 The main function, simviz, was created with the intention of being easy for students to immediately start using.
 
-```{r}
+```{r, fig.align='center'}
 library(inferviz)
 
 simViz(mtcars, mpg, hp)
@@ -37,20 +34,20 @@ simViz(mtcars, mpg, hp)
 
 It is conceptually simple -- plot the real visualization, alongside visualizations with variable values randomized. The principles oftidyeval were used, so that students can just pop in data and variable names (some students who are just beginning the long journey seem to get confused by the \$). This eases the burden on getting the function working and produces visualizations without much effort. 
 
-```{r}
+```{r, fig.align='center'}
 mtcars %>% 
   simViz(., mpg, hp)
 ```
 
 The number of distractors can be increased or decreased from the default of 3:
 
-```{r}
+```{r, fig.align='center'}
 simViz(mtcars, mpg, hp, distractors = 5)
 ```
 
 There is also an "interactive" mode for simviz; by setting the answer argument to TRUE, users can select whether they see the real visualization or not. 
 
-```{r}
+```{r, fig.align='center'}
 simViz(mtcars, mpg, hp, distractors = 5, answer = TRUE)
 ```
 
@@ -60,3 +57,4 @@ In addition to visualization, there is also a basic linear model simulator. It b
 simMod(mtcars, mpg, wt, distractors = 5)
 ```
 
+This prompts students to think through their hypotheses and see if that expected pattern is present. 
