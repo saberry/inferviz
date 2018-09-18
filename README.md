@@ -32,7 +32,9 @@ library(inferviz)
 simViz(mtcars, mpg, hp)
 ```
 
+<p align="center">
 <img src="figure/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" />
+</p>
 
 It is conceptually simple -- plot the real visualization, alongside visualizations with variable values randomized. The principles oftidyeval were used, so that students can just pop in data and variable names (some students who are just beginning the long journey seem to get confused by the \$). This eases the burden on getting the function working and produces visualizations without much effort. 
 
@@ -63,10 +65,10 @@ simViz(mtcars, mpg, hp, distractors = 5, answer = TRUE)
 <img src="figure/unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
 
 ```
-## Are you ready to see the real visual? 
-## 
-## 1: No
-## 2: Yes
+Are you ready to see the real visual? 
+
+1: No
+2: Yes
 ```
 
 <img src="figure/unnamed-chunk-5-2.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" style="display: block; margin: auto;" />
@@ -79,10 +81,10 @@ simMod(mtcars, mpg, wt, distractors = 5)
 ```
 
 ```
-##   (Intercept)        wt
-## 1    37.28513 -5.344472
-## 2    16.57496  17.98293
-## 3    1.092754 0.6551245
+  (Intercept)        wt
+1    -0.64832 0.7074616
+2    37.28513 -5.344472
+3    22.17643  17.81454
 ```
 
 This prompts students to think through their hypotheses and see if that expected pattern is present. 
