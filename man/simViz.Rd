@@ -4,7 +4,7 @@
 \alias{simViz}
 \title{Create a panel of plots for finding relationships}
 \usage{
-simViz(dat, var1, var2, distractors = 3, answer = TRUE)
+simViz(dat, var1, var2, distractors = 3, answer = FALSE)
 }
 \arguments{
 \item{dat}{Your data}

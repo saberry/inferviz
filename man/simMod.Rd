@@ -4,7 +4,7 @@
 \alias{simMod}
 \title{Create a table of model coefficients}
 \usage{
-simMod(dat, dv, ..., distractors = 3)
+simMod(dat, dv, ..., distractors = 3, answer = FALSE)
 }
 \arguments{
 \item{dat}{Your data}
@@ -14,6 +14,8 @@ simMod(dat, dv, ..., distractors = 3)
 \item{...}{The bare variables you want as the predictors in your model}
 
 \item{distractors}{The number of distractor coefficients you want included. Defaults to 3.}
+
+\item{answer}{Logical. TRUE if you want to play the game, FALSE otherwise.}
 }
 \value{
 A data.frame with several sets of coefficients.

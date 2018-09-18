@@ -4,12 +4,13 @@
 #' @param dv The bare variable you want as the dv in your model
 #' @param ... The bare variables you want as the predictors in your model
 #' @param distractors The number of distractor coefficients you want included. Defaults to 3.
+#' @param answer Logical. TRUE if you want to play the game, FALSE otherwise.
 #' @return A data.frame with several sets of coefficients.
 #' @examples
 #' simMod(mtcars, mpg, hp, cyl)
 #' @export
 
-simMod <- function(dat, dv, ..., distractors = 3) {
+simMod <- function(dat, dv, ..., distractors = 3, answer = FALSE) {
   library(rlang); library(purrr); library(dplyr); library(ggplot2)
 
   dv <- enquo(dv)
@@ -27,15 +28,14 @@ simMod <- function(dat, dv, ..., distractors = 3) {
 
   modelCreator <- paste(quo_name(dv), "~", predictors, sep = " ")
 
-  actual <- lm(UQ(modelCreator), data = dat)
+  actual <- lm(modelCreator, data = dat)
 
   actual <- as.data.frame(t(actual$coefficients))
 
   test <- purrr::rerun(distractors, {
-
     mod <- dat %>%
       mutate(!!quo_name(dv) := sample(!!dv)) %>%
-      lm(UQ(modelCreator), data = .)
+      lm(modelCreator, data = .)
 
     as.data.frame(t(mod$coefficients))
   })
@@ -48,28 +48,11 @@ simMod <- function(dat, dv, ..., distractors = 3) {
 
   print(test)
 
-  answer <- menu(c("No", "Yes"), title = "Are you ready to see the real model?")
+  if(answer == TRUE) {
+    answer <- menu(c("No", "Yes"), title = "Are you ready to see the real visual?")
 
-  if(answer == 2) {
-    actual
-  } else print("You probably don't have all day -- run it again and figure it out!")
-
+    if(answer == 2) {
+      actual
+    } else print("You probably don't have all day -- run it again and figure it out!")
+  } else message("Good luck!")
 }
-
-# debugonce(simMod)
-#
-# mtcars = mtcars %>% mutate(mpgR = as.character(mpg))
-#
-# simMod(mtcars, mpg, hp, cyl)
-#
-# simMod(mtcars, mpg)
-#
-# lmReal = lm(mpg ~ hp, data = mtcars)
-#
-# lmReal$coefficients
-#
-# lmSim = mtcars %>%
-#   mutate(mpg = sample(mpg)) %>%
-#   lm(mpg ~ hp, data = .)
-#
-# lmSim$coefficients

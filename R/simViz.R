@@ -10,7 +10,7 @@
 #' simViz(mtcars, mpg, cyl, 2)
 #' @export
 
-simViz <- function(dat, var1, var2, distractors = 3, answer = TRUE) {
+simViz <- function(dat, var1, var2, distractors = 3, answer = FALSE) {
 
   library(rlang); library(purrr); library(dplyr); library(ggplot2)
   var1 <- enquo(var1)
@@ -43,15 +43,3 @@ simViz <- function(dat, var1, var2, distractors = 3, answer = TRUE) {
     } else print("You probably don't have all day -- run it again and figure it out!")
   } else message("Good luck!")
 }
-
-# debugonce(simFunction)
-
-# simViz(mtcars, mpg, cyl, 5)
-
-# dat = dat
-# x = NULL
-# y = NULL
-# color = NULL
-# fill = NULL
-# geoms = c("point", "bar", "line")
-# facet = NULL
