@@ -8,25 +8,30 @@
 #' @return A panel with several visualizations: one is the actual data and the rest are from shuffled data.
 #' @examples
 #' simViz(mtcars, mpg, cyl, 2)
+#' @importFrom dplyr mutate
+#' @importFrom rlang enquo quo_name !! :=
+#' @importFrom purrr rerun
+#' @importFrom ggplot2 ggplot aes_ geom_point theme_bw `%+%`
+#' @importFrom utils menu
+#' @importFrom magrittr %>%
 #' @export
 
 simViz <- function(dat, var1, var2, distractors = 3, answer = FALSE) {
 
-  library(rlang); library(purrr); library(dplyr); library(ggplot2)
-  var1 <- enquo(var1)
+  var1 <- rlang::enquo(var1)
 
-  var2 <- enquo(var2)
+  var2 <- rlang::enquo(var2)
 
-  actual <- ggplot(dat, aes_(var1, var2), environment = environment()) +
-    geom_point() +
-    theme_bw()
+  actual <- ggplot2::ggplot(dat, aes_(var1, var2), environment = environment()) +
+    ggplot2::geom_point() +
+    ggplot2::theme_bw()
 
   test <- purrr::rerun(distractors, {
     dat %>%
-      mutate(!!quo_name(var1) := sample(!!var1)) %>%
-      ggplot(mapping = aes_(var1, var2), environment = environment()) +
-      geom_point() +
-      theme_bw()
+      dplyr::mutate(!!quo_name(var1) := sample(!!var1)) %>%
+      ggplot2::ggplot(mapping = aes_(var1, var2), environment = environment()) +
+      ggplot2::geom_point() +
+      ggplot2::theme_bw()
     })
 
   test[length(test) + 1] = list(actual)

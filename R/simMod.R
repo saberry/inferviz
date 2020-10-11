@@ -8,14 +8,20 @@
 #' @return A data.frame with several sets of coefficients.
 #' @examples
 #' simMod(mtcars, mpg, hp, cyl)
+#' @importFrom dplyr mutate
+#' @importFrom rlang enquo quo_name !! :=
+#' @importFrom purrr rerun
+#' @importFrom utils menu
+#' @importFrom magrittr %>%
+#' @importFrom stats lm
+#' @importFrom tidyselect vars_select
 #' @export
 
 simMod <- function(dat, dv, ..., distractors = 3, answer = FALSE) {
-  library(rlang); library(purrr); library(dplyr); library(ggplot2)
 
-  dv <- enquo(dv)
+  dv <- rlang::enquo(dv)
 
-  if(is.numeric(dat[, quo_name(dv)]) == FALSE) {
+  if(is.numeric(dat[, rlang::quo_name(dv)]) == FALSE) {
     stop("Your dv needs to be numeric! Just convert it and try again.")
   }
 
@@ -26,7 +32,7 @@ simMod <- function(dat, dv, ..., distractors = 3, answer = FALSE) {
     stop("You need to include at least one predictor in your model!\nThat is the purpose of the dots in the function.")
   }
 
-  modelCreator <- paste(quo_name(dv), "~", predictors, sep = " ")
+  modelCreator <- paste(rlang::quo_name(dv), "~", predictors, sep = " ")
 
   actual <- lm(modelCreator, data = dat)
 
@@ -34,7 +40,7 @@ simMod <- function(dat, dv, ..., distractors = 3, answer = FALSE) {
 
   test <- purrr::rerun(distractors, {
     mod <- dat %>%
-      mutate(!!quo_name(dv) := sample(!!dv)) %>%
+      mutate(!!rlang::quo_name(dv) := sample(!!dv)) %>%
       lm(modelCreator, data = .)
 
     as.data.frame(t(mod$coefficients))
