@@ -46,7 +46,9 @@ simMod <- function(dat, dv, ..., distractors = 3, answer = FALSE) {
     as.data.frame(t(mod$coefficients))
   })
 
-  test <- do.call("rbind", c(test, actual))
+  test <- do.call("rbind", test)
+
+  test <- rbind(test, actual)
 
   test <- test[sample(nrow(test)), ]
 
